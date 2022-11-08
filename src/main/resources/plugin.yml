@@ -3,3 +3,5 @@ version: '${project.version}'
 main: com.tooze.tabensions.Plugin
 api-version: 1.19
 load: STARTUP
+
+depend: [PlaceholderAPI]

@@ -12,6 +12,6 @@ class TabensionsExpansion : PlaceholderExpansion() {
     }
 
     override fun getVersion(): String {
-        return "0.0.1"
+        return plugin.description.version
     }
 }

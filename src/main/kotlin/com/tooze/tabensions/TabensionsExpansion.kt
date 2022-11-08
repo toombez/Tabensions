@@ -2,7 +2,7 @@ package com.tooze.tabensions
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion
 
-class TabensionsExpansion : PlaceholderExpansion() {
+class TabensionsExpansion(private val plugin: Plugin) : PlaceholderExpansion() {
     override fun getAuthor(): String {
         return "toombez"
     }

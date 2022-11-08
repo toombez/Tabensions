@@ -10,6 +10,8 @@ class Plugin : JavaPlugin() {
 
             Bukkit.getPluginManager().disablePlugin(this)
         }
+
+        TabensionsExpansion(this).register()
     }
 
     override fun onDisable() {

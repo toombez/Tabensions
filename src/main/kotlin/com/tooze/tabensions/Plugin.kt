@@ -9,9 +9,11 @@ class Plugin : JavaPlugin() {
             logger.warning("Cannot find PlaceholderAPI plugin. Disabling plugin.")
 
             Bukkit.getPluginManager().disablePlugin(this)
+        } else {
+            TabensionsExpansion(this).register()
         }
 
-        TabensionsExpansion(this).register()
+        saveDefaultConfig()
     }
 
     override fun onDisable() {

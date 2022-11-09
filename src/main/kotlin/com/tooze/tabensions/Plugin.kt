@@ -5,7 +5,7 @@ import org.bukkit.World.Environment
 import org.bukkit.plugin.java.JavaPlugin
 
 class Plugin : JavaPlugin() {
-    public val char: String
+    val char: String
         get() = config.getString("dimensionChar").toString()
     val colors: MutableMap<Environment, String>
         get() {
@@ -21,7 +21,7 @@ class Plugin : JavaPlugin() {
             return map
         }
 
-    private val ignoredWorlds: MutableList<String>
+    val ignoredWorlds: MutableList<String>
         get() {
             val list = mutableListOf<String>()
 

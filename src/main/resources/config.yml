@@ -11,16 +11,14 @@
 # Char used for represent dimensions in placeholder
 dimensionChar: "●"
 
-# Colors for placeholder char
-# Allowed minecraft colors: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/ChatColor.html
-# Not case-sensitive
+# Minecraft colors for placeholder char
 colors:
-    normal: "GREEN"
-    nether: "DARK_RED"
-    end: "DARK_PURPLE"
-    custom: "GRAY"
+    NORMAL: "&a"
+    NETHER: "&4"
+    THE_END: "&5"
+    CUSTOM: "&7"
 
-# Ignored worlds
+# Ignored worlds where placeholder is won't show
 # Case-sensitive
 ignoredWorlds:
     - ExampleWorld

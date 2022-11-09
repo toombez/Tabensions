@@ -5,9 +5,34 @@ import org.bukkit.World.Environment
 import org.bukkit.plugin.java.JavaPlugin
 
 class Plugin : JavaPlugin() {
-    private lateinit var char: String
-    private val colors: MutableMap<Environment, String> = mutableMapOf()
-    private val ignoredWorlds: MutableList<String> = mutableListOf()
+    public val char: String
+        get() = config.getString("dimensionChar").toString()
+    val colors: MutableMap<Environment, String>
+        get() {
+            val map: MutableMap<Environment, String> = mutableMapOf()
+
+            for (environment in Environment.values()) {
+                val colorCode = config.getString("colors.${environment}")!!
+                map[environment] = colorCode
+
+                logger.warning(colorCode)
+            }
+
+            return map
+        }
+
+    private val ignoredWorlds: MutableList<String>
+        get() {
+            val list = mutableListOf<String>()
+
+            for (worldName in config.getStringList("ignoredWorlds")) {
+                list += worldName
+
+                logger.warning(worldName)
+            }
+
+            return list
+        }
 
     override fun onEnable() {
         config.options().copyDefaults()
@@ -20,33 +45,9 @@ class Plugin : JavaPlugin() {
             return
         }
 
-        loadConfig()
-
         TabensionsExpansion(this).register()
     }
 
     override fun onDisable() {
-    }
-
-    private fun loadConfig() {
-        // Saving char
-        char = config.getString("dimensionChar").toString()
-
-        logger.warning(char)
-
-        // Saving colors
-        for (environment in Environment.values()) {
-            val colorCode = config.getString("colors.${environment}")!!
-            colors[environment] = colorCode
-
-            logger.warning(colorCode)
-        }
-
-        // Saving ignored worlds
-        for (worldName in config.getStringList("ignoredWorlds")) {
-            ignoredWorlds += worldName
-
-            logger.warning(worldName)
-        }
     }
 }

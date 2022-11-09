@@ -5,34 +5,11 @@ import org.bukkit.World.Environment
 import org.bukkit.plugin.java.JavaPlugin
 
 class Plugin : JavaPlugin() {
-    val char: String
-        get() = config.getString("dimensionChar").toString()
-    val colors: MutableMap<Environment, String>
-        get() {
-            val map: MutableMap<Environment, String> = mutableMapOf()
-
-            for (environment in Environment.values()) {
-                val colorCode = config.getString("colors.${environment}")!!
-                map[environment] = colorCode
-
-                logger.warning(colorCode)
-            }
-
-            return map
-        }
-
-    val ignoredWorlds: MutableList<String>
-        get() {
-            val list = mutableListOf<String>()
-
-            for (worldName in config.getStringList("ignoredWorlds")) {
-                list += worldName
-
-                logger.warning(worldName)
-            }
-
-            return list
-        }
+    val char: String = config.getString("dimensionChar").toString()
+    val colors: Map<Environment, String> = Environment
+        .values()
+        .associateWith { config.getString("colors.${it.toString()}")!! }
+    val ignoredWorlds: List<String> = config.getStringList("ignoredWorlds")
 
     override fun onEnable() {
         config.options().copyDefaults()

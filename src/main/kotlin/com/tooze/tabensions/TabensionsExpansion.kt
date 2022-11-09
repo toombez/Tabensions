@@ -27,7 +27,7 @@ class TabensionsExpansion(private val plugin: Plugin) : PlaceholderExpansion() {
             // Check ignored worlds
             val world = p.player!!.world
             if (plugin.ignoredWorlds.contains(world.name)) {
-                return null
+                return ""
             }
 
             // Placeholder

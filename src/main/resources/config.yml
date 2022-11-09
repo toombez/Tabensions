@@ -18,7 +18,7 @@ colors:
     THE_END: "&5"
     CUSTOM: "&7"
 
-# Ignored worlds
+# Ignored worlds where placeholder is won't show
 # Case-sensitive
 ignoredWorlds:
     - ExampleWorld

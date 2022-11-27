@@ -1,6 +1,6 @@
 # Tabensions
 
-![tab examples in tab](assets/tabensions.png)
+![tab examples in tab](.github/tabensions.png)
 
 Minecraft simple plugin for showing what dimension player in.
 
